@@ -1,0 +1,11 @@
+if: (type = push AND branch = main) OR (type = pull_request)
+
+language: node_js
+node_js:
+  - 12
+cache:
+  directories:
+  - node_modules
+script:
+  - yarn install
+  - yarn build-dev
