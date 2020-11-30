@@ -1,0 +1,58 @@
+@import './main.less';
+@primary-bg-color: #ffffff;
+@hover-primary: lighten(@primaryColor, 10%);
+@click-primary: lighten(@hover-primary, 10%);
+
+@secondary-bg-color: #aaaaaa;
+
+.navbar {
+  margin-bottom: 1rem;
+  border-bottom: 2px solid @quaternaryColor;
+  background-color: @primaryColor;
+}
+
+.header {
+  max-width: 100%;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.header-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-align: center;
+  position: absolute;
+  left: 47%;
+}
+
+.nav-item {
+  &:hover {
+    color: @tertiaryColor;
+    background-color: @hover-primary;
+  }
+
+  &:active {
+    color: @tertiaryColor;
+    background-color: @click-primary;
+  }
+}
+
+.nav-link {
+  color: @tertiaryColor !important;
+  padding: 0.5rem 0.8rem !important;
+}
+
+// .nav {
+//   margin-bottom: 1rem;
+// }
+
+.search-bar {
+  // margin: auto;
+  // margin-bottom: 1rem;
+  width: 21rem !important;
+}
+
+// .search-textarea {
+//   width: 20rem;
+//   height: 2rem;
+// }
