@@ -112,7 +112,7 @@
   {
     "id": 8,
     "drinkName": "Mojito",
-    "imageUrl": "https://www.culinaryhill.com/wp-content/uploads/2018/08/Mojito-Cocktail-HR10-square-Culinary-Hill.jpg",
+    "imageUrl": "./assets/images/mojito.jpg",
     "ingredientList": ["1 1/2 oz light rum", 
                       "1 oz lime juice", 
                       "3/4 oz simple syrup", 
@@ -132,7 +132,7 @@
   {
     "id": 9,
     "drinkName": "Whiskey Sour",
-    "imageUrl": "https://www.bbcgoodfood.com/sites/default/files/recipe/recipe-image/2018/01/whiskey-sours.jpg",
+    "imageUrl": "./assets/images/whiskey-sour.jpg",
     "ingredientList": ["2 oz whiskey", "3/4 oz simple syrup", "3/4 lemon juice", "lemon wedge (Optional"],
     "baseIngredients": ["whiskey", "simple syrup", "lemon juice"],
     "directions": ["Add whiskey, lemon juice, and simple syrup to a cocktail shaker with ice and shake until chilled.",

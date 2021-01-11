@@ -66,6 +66,13 @@ var client = {
             loader: "less-loader"
           }
         ]
+      },
+      {
+        test: /\.(jpg)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "image-loader"
+        }
       }
       // {
       //   test: /\.(svg|ttf|woff|woff2|eot)$/,

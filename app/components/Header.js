@@ -21,18 +21,12 @@ class Header extends React.Component {
       searchTerm: e.target.value
     })
 
-    console.log(this.state)
+    // console.log(this.state)
     this.doSearch()
   }
 
   doSearch = () => {
-    let str = "["
-    for (let i = 1; i<100000; i++) {
-      str += `${i},`
-    }
-    str+=']'
-    console.log(str)
-    
+    null
   }
 
   render() {

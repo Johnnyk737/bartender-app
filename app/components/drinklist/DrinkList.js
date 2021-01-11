@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row'
 
 import Header from '../Header'
 import Footer from '../Footer'
-import DrinkCard from '../DrinkCard'
+import { DrinkCard } from '../DrinkCard'
 import FilterSideBar from '../filter/FilterSideBar'
 import '../../styles/main.less'
 

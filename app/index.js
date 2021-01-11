@@ -7,6 +7,7 @@ import Main from "./components/Main";
 import DrinkList from './components/drinklist/DrinkList'
 import FindDrink from './components/finddrink/FindDrink'
 import DrinkPage from './components/drinkpage/DrinkPage'
+import { Admin } from './components/admin/Admin'
 import ErrorPage from './components/ErrorPage'
 import routes from './routes'
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,6 +24,7 @@ ReactDOM.render(
         <Route path='/drinklist' component={DrinkList} />
         <Route path='/findyourdrink' component={FindDrink} />
         <Route exact path='/drink/:id' component={DrinkPage} />
+        <Route exact path='/admin' component={Admin} />
         <Route component={ErrorPage} />
       </Switch>
     </BrowserRouter>
