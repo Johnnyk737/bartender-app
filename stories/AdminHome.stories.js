@@ -1,14 +1,14 @@
 import React from 'react';
-import { Admin } from '../app/components/admin/Admin';
+import { AdminHome } from '../app/components/admin/AdminHome';
 import StoryRouter from 'storybook-react-router';
 
 export default {
-  title: 'Admin',
-  component: Admin,
+  title: 'Admin/Main',
+  component: AdminHome,
   decorators: [StoryRouter()]
 };
 
-const Template = (args) => <Admin {...args} />;
+const Template = (args) => <AdminHome {...args} />;
 export const Default = Template.bind({});
 Default.args = {
 };

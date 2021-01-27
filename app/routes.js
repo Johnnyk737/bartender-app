@@ -2,6 +2,7 @@ import Main from './components/Main'
 import DrinkList from './components/drinklist/DrinkList'
 import DrinkPage from './components/drinkpage/DrinkPage'
 import { Admin } from './components/admin/Admin'
+import { AdminDrinks } from './components/admin/AdminDrinks'
 
 const routes = [
   {
@@ -24,7 +25,14 @@ const routes = [
   {
     description: "Path to Admin page",
     path: "/admin",
-    component: Admin
+    component: Admin,
+    routes: [
+      {
+        description: "Path to Admin page",
+        path: "/admin/manage-drinks",
+        component: AdminDrinks,
+      }
+    ]
   }
 ]
 

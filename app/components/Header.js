@@ -47,6 +47,9 @@ class Header extends React.Component {
             <Nav.Item>
             <Link className='nav-link' to='/'>About</Link>
             </Nav.Item>
+            <Nav.Item>
+            <Link className='nav-link' to='/admin'>Admin</Link>
+            </Nav.Item>
           </Nav>
           <div id="image-text" className="navbar-brand header-title">
             {/* TODO: Keep center at smaller widths */}

@@ -3,7 +3,7 @@ import { DrinkForm } from '../app/components/admin/DrinkForm';
 import StoryRouter from 'storybook-react-router';
 
 export default {
-  title: 'DrinkForm',
+  title: 'Admin/DrinkForm',
   component: DrinkForm,
   decorators: [StoryRouter()]
 };
