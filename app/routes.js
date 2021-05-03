@@ -16,10 +16,10 @@ const routes = [
     component: DrinkList,
   },
   {
-      description: "Path to individual drink",
-      path: '/drink/:id',
-      component: DrinkPage
-    },
+    description: "Path to individual drink",
+    path: '/drink/:id',
+    component: DrinkPage
+  },
 ]
 
 export default routes

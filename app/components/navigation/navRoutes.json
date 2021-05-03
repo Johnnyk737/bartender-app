@@ -1,0 +1,22 @@
+[
+  {
+    "description": "Path to drink list page",
+    "path": "/drinklist",
+    "name": "Drink List"
+  },
+  {
+    "description": "Path to drink list page",
+    "path": "/find-a-drink",
+    "name": "Find a Drink"
+  },
+  {
+    "description": "Path to drink list page",
+    "path": "/popular-drinks",
+    "name": "Popular Drinks"
+  },
+  {
+    "description": "Path to About page",
+    "path": "/about",
+    "name": "About"
+  }
+]
