@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { renderRoutes } from "react-router-config";
 
-import Main from "./components/Main";
+import { Main } from "./components/Main";
 import DrinkList from './components/drinklist/DrinkList'
 import FindDrink from './components/finddrink/FindDrink'
-import DrinkPage from './components/drinkpage/DrinkPage'
+import { DrinkPage } from './components/drinkpage/DrinkPage'
 import ErrorPage from './components/ErrorPage'
 import routes from './routes'
 // import 'bootstrap/dist/css/bootstrap.min.css';

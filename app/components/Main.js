@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
-// import Container from 'react-bootstrap/Container'
-// import Row from 'react-bootstrap/Row'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { DrinkCard } from './DrinkCard'
-// import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid'
-import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../styles/theme'
 
 import json from '../../data.json'
@@ -38,19 +35,11 @@ export const Main = () => {
   const [drinkList, setDrinkList] = useState(json)
   const classes = useStyles();
 
-  const generateDrinkList = () => {
-    console.log(drinkList)
-  };
-
-  // generateDrinkList();
-
   let drinkListMap = drinkList.map(drink=>{
     return (
       <DrinkCard key={drink.id} drink={drink} />
     )
   });
-
-  console.log(theme)
 
   return (
     <ThemeProvider theme={theme}>
@@ -60,7 +49,7 @@ export const Main = () => {
         <Grid
           container
           className={classes.root}
-          // justify="center"
+          justify="center"
           spacing={3}
           direction="row">
           { drinkListMap || null}

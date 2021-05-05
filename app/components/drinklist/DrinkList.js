@@ -1,11 +1,8 @@
 import React from 'react'
-import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
-import Card from 'react-bootstrap/Card'
-import Row from 'react-bootstrap/Row'
+import Grid from '@material-ui/core/Grid'
 
-import Header from '../Header'
-import Footer from '../Footer'
+import { Header } from '../Header'
+import { Footer } from '../Footer'
 import { DrinkCard } from '../DrinkCard'
 import FilterSideBar from '../filter/FilterSideBar'
 import '../../styles/main.less'
@@ -52,18 +49,12 @@ class DrinkList extends React.Component {
         <Header />
         <FilterSideBar />
         <section className="py-6 px-6">
-          {/* <div className="search-bar">
-            <input type="textarea" 
-              className="search-textarea" 
-              onChange={event=>this.handleChange(event)}
-              placeholder="Filter Drinks" />
-          </div> */}
           <div className="drink-list">
-            <Container>
-              <Row>
+            <Grid container>
+              <Grid container direction="row">
                 { drinkList }
-              </Row>
-            </Container>
+              </Grid>
+            </Grid>
           </div>
         </section>
         <Footer />

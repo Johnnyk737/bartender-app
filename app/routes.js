@@ -1,6 +1,6 @@
-import Main from './components/Main'
+import { Main } from './components/Main'
 import DrinkList from './components/drinklist/DrinkList'
-import DrinkPage from './components/drinkpage/DrinkPage'
+import { DrinkPage } from './components/drinkpage/DrinkPage'
 
 const routes = [
   {
