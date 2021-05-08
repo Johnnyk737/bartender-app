@@ -3,7 +3,7 @@ import { DrinkCard } from '../app/components/DrinkCard.js';
 import StoryRouter from 'storybook-react-router';
 
 export default {
-  title: 'Main/DrinkCard',
+  title: 'Components/DrinkCard',
   component: DrinkCard,
   decorators: [StoryRouter()]
 };

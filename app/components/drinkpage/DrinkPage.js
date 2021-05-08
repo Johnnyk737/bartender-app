@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import { Header } from '../Header'
 import { Footer } from '../Footer'
 
-export const DrinkPage = (props) => {
+export const DrinkPage = ({location}) => {
 
-  let [currDrink, setDrink] = useState(props.location.state.drink);
+  let [currDrink, setDrink] = useState(location.state.drink);
 
   const getIngredients = (drink) => {
     return drink.ingredientList.map((ingredient, i)=>{

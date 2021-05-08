@@ -19,12 +19,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: "column",
     alignItems: "flex-start"
-  },
-  horizontal: {
-    // display: 'flex',
-    // flexDirection: "row"
-  },
-
+  }
 }));
 
 
@@ -51,7 +46,7 @@ export const NavLinks = ({direction}) => {
   }
 
   return (
-    <div className={`${classes.navlinks} ${direction == "vertical" ? classes.vertical : classes.horizontal}`}>
+    <div className={`${classes.navlinks} ${direction == "vertical" ? classes.vertical : ''}`}>
       {routes.map((route) => makeButton(route.name, route.path))}  
     </div>
   );
