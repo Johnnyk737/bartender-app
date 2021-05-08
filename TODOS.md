@@ -1,0 +1,22 @@
+# TODOs
+
+- Home page
+  - [ ] - Add welcome text
+- Navigation
+  - [ ] - Keep title center at smaller widths
+  - [ ] - Turn Search bar into a search icon (magnifying glass) at smaller widths
+- Footer
+  - [ ] - Add link to portfolio
+  - [ ] - Add contact info
+- Account Page
+  - [ ] - Complete initial account page
+  - [ ] - Add side bar to access sub pages (Settings, Profile, Admins)
+- [ ] - Add linter (eslint?)
+- [ ] - Add tests (jest?)
+- [ ] - Resolve A11y issues
+- [ ] - Drinks Page
+- [ ] - Add Google auth for login
+- [ ] - Add Database (Save drink data, login info, usage. Build models/schema. MongoDB)
+- [ ] - Fix routing
+- [ ] - Complete design (Material-ui)
+- [ ] - Improve performance (Reduce build filesize, lazy load, compress images)

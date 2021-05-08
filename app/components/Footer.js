@@ -1,69 +1,52 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import { useTheme } from '@material-ui/core/styles';
+import { NavLinks } from './navigation/NavLinks';
+import Grid from '@material-ui/core/Grid';
 
-import '../styles/footer.less'
+// import '../styles/footer.less'
 
-class Footer extends React.Component {
-  render() {
-    return (
-      <>
-        <footer className="position-relative z-index-10 d-print-none">
-          <div className="py-6 bg-gray-200">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-2 col-md-3 mb-5 mb-lg-0">
-                  <div className="font-weight-bold text-uppercase text-dark mb-3">
-                    Directory
-                  </div>
-                  <p>
-                    Facebook, Instagram
-                  </p>
-                </div>
-                <div className="col-md-3 mb-5 mb-lg-0">
-                  <h6 className="text-uppercase text-dark mb-3">
-                    Links
-                  </h6>
-                  <ul className="list-unstyled">
-                    <li>
-                      <Link className="nav-link" to="/drinklist">
-                        Drink List
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="nav-link" to="/findyourdrink">
-                        Find your Drink
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="nav-link" to="/populardrinks">
-                        Popular Drinks
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="nav-link" to="/about">
-                        About
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col-lg-6 col-md-6 mb-5 mb-lg-0"></div>
-              </div>
-            </div>
-          </div>
-          <div className="py-4 font-weight-light bg-gray-800">
-            <div className="container">
-              <div className="row align-items-center">
-                <div className="text-md-left text-center col-md-6">
+export const Footer = () => {
+  const theme = useTheme();
+  return (
+    <>
+      <footer className="position-relative z-index-10 d-print-none">
+        <div className="py-6 bg-gray-200">
+          <Container>
+
+            <Grid container className="row"spacing={4}>
+              <Grid item className="col-lg-2 col-md-3 mb-5 mb-lg-0">
+                <Typography variant="h6" className="font-weight-bold text-uppercase text-dark mb-3">
+                  Directory
+                </Typography>
+                <Typography component="p">
+                  Facebook, Instagram
+                </Typography>
+              </Grid>
+              <Grid item className="col-md-3 mb-5 mb-lg-0">
+                <Typography variant="h6">
+                  Links
+                </Typography>
+                <NavLinks direction="vertical" />
+              </Grid>
+              <Grid item className="col-lg-6 col-md-6 mb-5 mb-lg-0"></Grid>
+            </Grid>
+          </Container>
+        </div>
+        <div className="py-4 font-weight-light bg-gray-800">
+          <Container>
+            <Grid container direction="row" className="align-items-center">
+              <Grid container direction="column" className="text-md-left text-center col-md-6">
+                <Typography component="p">
                   {/* TODO: link to portfolio, add contact info */}
                   contact, copyright, developed by John Kroll, link to portfolio
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </>
-    )
-  }
+                </Typography>
+              </Grid>
+            </Grid>
+          </Container>
+        </div>
+      </footer>
+    </>
+  )
 }
-
-export default Footer

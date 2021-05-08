@@ -1,6 +1,6 @@
-import Main from './components/Main'
+import { Main } from './components/Main'
 import DrinkList from './components/drinklist/DrinkList'
-import DrinkPage from './components/drinkpage/DrinkPage'
+import { DrinkPage } from './components/drinkpage/DrinkPage'
 
 const routes = [
   {
@@ -16,10 +16,10 @@ const routes = [
     component: DrinkList,
   },
   {
-      description: "Path to individual drink",
-      path: '/drink/:id',
-      component: DrinkPage
-    },
+    description: "Path to individual drink",
+    path: '/drink/:id',
+    component: DrinkPage
+  },
 ]
 
 export default routes

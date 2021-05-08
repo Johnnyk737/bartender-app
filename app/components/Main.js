@@ -1,12 +1,10 @@
-import React from 'react'
-
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-
-import Header from './Header'
-import Footer from './Footer'
-import DrinkCard from './DrinkCard'
-import '../styles/main.less'
+import React, { useState } from 'react'
+import { Header } from './Header'
+import { Footer } from './Footer'
+import { DrinkCard } from './DrinkCard'
+import Grid from '@material-ui/core/Grid'
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import theme from '../styles/theme'
 
 import json from '../../data.json'
 
@@ -20,49 +18,44 @@ import json from '../../data.json'
  * Link to Google Play/Apple App store for app
  */
 
-class Main extends React.Component {
-  constructor(props) {
-    super(props)
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1
+  },
+  paper: {
+    height: 140,
+    width: 100,
+  },
+  control: {
+    padding: theme.spacing(2),
+  },
+}));
 
-    this.state = {
-      drinkList: json
-    }
-  }
+export const Main = () => {
+  const [drinkList, setDrinkList] = useState(json)
+  const classes = useStyles();
 
-  generateDrinkList = () => {
-    console.log(this.state.drinkList)
-
-  }
-
-  render() {
-
-    const { drinkList } = this.state
-
-    this.generateDrinkList();
-
-    // let drinkListMap = null;
-
-    let drinkListMap = drinkList.map(drink=>{
-      return (
-        <DrinkCard key={drink.id} drink={drink} />
-      )
-    })
-
+  let drinkListMap = drinkList.map(drink=>{
     return (
-      <>
-        <Header />
-        <section className="py-6 px-6">
-          {/* TODO: we'll put a big picture of a bar in the background */}
-          <Container>
-            <Row>
-              { drinkListMap || null}
-            </Row>
-          </Container>
-        </section>
-        <Footer />
-      </>
+      <DrinkCard key={drink.id} drink={drink} />
     )
-  }
-}
+  });
 
-export default Main;
+  return (
+    <ThemeProvider theme={theme}>
+      <Header />
+      {/* <section> */}
+        {/* TODO: we'll put a big picture of a bar in the background */}
+        <Grid
+          container
+          className={classes.root}
+          justify="center"
+          spacing={3}
+          direction="row">
+          { drinkListMap || null}
+        </Grid>
+      {/* </section> */}
+      <Footer />
+    </ThemeProvider>
+  )
+}

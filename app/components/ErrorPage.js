@@ -4,7 +4,7 @@ class ErrorPage extends React.Component {
   render() {
     return (
       <>
-        Error page
+        404 Error page
       </>
     )
   }
