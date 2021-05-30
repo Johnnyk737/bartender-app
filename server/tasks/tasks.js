@@ -1,46 +1,89 @@
 const fs = require('fs')
 const path = require('path')
-const DOMParser = require('dom-parser')
+const cheerio = require('cheerio')
 
 const basePath = 'server/assets';
-let parser = new DOMParser();
+let $ = null;
+
+const ALCOHOLS = [
+  'whiskey',
+  'gin',
+  'bourbon',
+  'vodka',
+  'rum'
+]
 
 function buildDrinkObjects() {
   console.log("building drink objects from HTML");
   const files = fs.readdirSync(basePath);
+  let drinks = [];
   
   for (const file of files) {
     let recipe = getRecipe(file)
-    console.log(recipe.attributes)
-    // let children = recipe.childNodes
-    let drinkName = recipe.getElementsByClassName("item-title")[0].innerHTML
-    let rating = getRating(recipe.getElementsByClassName("item-rating")[0])
+    let drinkName = $(recipe).find("h1.item-title").text();
+    let rating = getRating($(recipe).find(".item-rating").first())
     let difficulty = getDifficulty(recipe)
-    let ingredients = getIngredients(recipe.getElementsByClassName("instruction-item-list")[0])
-    break;
+    let ingredients = getIngredients($(recipe).find(".instruction-item-list").first())
+    let directions = getDirections($(recipe));
+    let alcohols = getAlcohols();
+    let flavors = getFlavors();
+    let glass = getGlass();
+    let tags = getTags();
+    // let equipment = getEquipment($(recipe).find('.instruction-item-list')[1])
+    let drink = {
+      drinkId: slugify(drinkName),
+      drinkName: drinkName,
+      imageUrl: '',
+      ingredientList: ingredients,
+      directions: directions,
+      baseIngredients: [],
+      glass: glass || '',
+      alcohol: alcohols || [],
+      flavors: flavors || [],
+      tags: tags || []
+    }
+    drinks.push(drinks)
   }
+  // write json file of drinks
 }
 
 function getRecipe(file) {
   let filePath = path.join(basePath, file)
   let htmlfile = fs.readFileSync(filePath, 'utf8')
-  var text = htmlfile.replace(/\n[ ]*/g, "");
-  let doc = parser.parseFromString(text, 'text/html')
-  return doc.getElementById('recipe');
+  $ = cheerio.load(htmlfile);
+  return $('#recipe')
 }
 
 function getIngredients(item) {
-  console.log(item)
+  if (item.attr('itemprop') == 'ingredients') {
+    return item.children('li').get().map((list) => {
+      let $list = $(list);
+      
+      if (!$list.hasClass('.instruction-item-list-units')) {
+        return {
+          ingredient_name: $list.find('div.instruction-item-list-detail').text().trim(),
+          ingredient_value: $list.find('span.instruction-item-list-quantity-value').data('initialvalue'),
+          ingredient_unit: $list.find('span.instruction-item-list-quantity-value').data('unit')
+        }
+      }
+    });
+  }
 }
 
 function getDifficulty(item) {
-  return item.getElementsByClassName("item-hero")[0]
-             .getElementsByClassName("item-difficulty")[0]
-             .getElementsByTagName("span")[0].innerHTML
+  return item.find('.item-difficulty span').first().text()
 }
 
 function getRating(itemRating) {
-  return itemRating.getElementsByClassName("star star-full").length
+  return itemRating.find('label.star-full').length
+}
+
+function getDirections(recipe) {
+  return recipe
+         .find('[itemprop="recipeInstructions"]')
+         .children('li')
+         .get()
+         .map((direction) => $(direction).find('div').text())
 }
 
 function runTasks() {
